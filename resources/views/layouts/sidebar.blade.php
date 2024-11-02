@@ -53,6 +53,7 @@
     border-radius: 4px;
     cursor: pointer;
     z-index: 1000;
+    
 }
 
 .menu-button i {
@@ -62,7 +63,7 @@
 /* Estilos del sidebar */
 .sidebar {
     background-color: #042141;
-    
+    position: absolute;
     width: 120px;
     height: 250;
     padding-top: 20px;
@@ -70,7 +71,7 @@
     flex-direction: column;
     align-items: center;
     border-radius: 8px; 
-   
+    overflow-y: auto;
     transition: transform 0.3s ease;
 }
 
