@@ -25,13 +25,8 @@
         <li><a href="{{ route('dashboard') }}" class="sidebar-link">
             <i class="fa-solid fa-chart-line"></i><span> Dashboard</span>
         </a></li>
-        <li><a href="{{ route('reportes.index') }}" class="sidebar-link">
-            <i class="fa-solid fa-chart-column"></i><span> Reporte y Estadísticas</span>
-        </a></li>
-        <li><a class="sidebar-link">
-            <i class="fa-regular fa-file"></i><span> Historial de Soporte</span>
-        </a></li>
-        <li><a class="sidebar-link">
+       
+        <li><a href="{{route('faqs.index')}}" class="sidebar-link">
             <i class="fa-regular fa-circle-question"></i><span> FAQ</span>
         </a></li>
         <li><a href="{{ route('tickets.index') }}" class="sidebar-link">
@@ -63,8 +58,8 @@
 /* Estilos del sidebar */
 .sidebar {
     background-color: #042141;
-    position: absolute;
-    width: 120px;
+    position: fixed;
+    width: 90px;
     height: 250;
     padding-top: 20px;
     display: flex;
@@ -103,7 +98,7 @@
 }
 
 .sidebar-link span {
-    font-size: 14px;
+    font-size: 15px;
     text-align: center;
 }
 

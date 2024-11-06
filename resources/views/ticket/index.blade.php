@@ -37,24 +37,7 @@
                                     <input type="date" name="fecha" class="form-control mr-2" value="{{ request('fecha') }}">
                                         <button type="submit" class="btn btn-primary">Filtrar</button>
                                     </form>
-
-                                    <!-- Tabla de tickets -->
-                                    <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Nombre</th>
-                                                <th>Prioridad</th>
-                                                <th>Estado</th>
-                                                <th>Fecha</th>
-                                                <th>Asignado A</th>
-                                                <th>Acciones</th>
-                                            </tr>
-                                        </thead>
-                                        </table>
-                                    </div>
-
+                                    <div class="button-group">
                                     <button class="Btn">
   
                                         <div class="sign">+</div>
@@ -73,6 +56,58 @@
                                                           <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path>
                                                         </svg>
                                       </button>
+
+                                      <button class="Ver-button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                                        </svg>
+
+                                                       
+                                                          
+                                      </button>
+                                    </div>
+
+                                    <!-- Tabla de tickets -->
+                                    <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Nombre</th>
+                                                <th>Prioridad</th>
+                                                <th>Estado</th>
+                                                <th>Fecha</th>
+                                                <th>Asignado A</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Kevin Castaño</td>
+                                                <td>Alta</td>
+                                                <td>Abierto</td>
+                                                <td>2024-11-05</td>
+                                                <td>Juan Pérez</td>
+                                                <td>
+                                                    <div class="checkbox-wrapper-12">
+                                                        <div class="cbx">
+                                                            <input type="checkbox" id="cbx-12">
+                                                            <label for="cbx-12"></label>
+                                                            <svg fill="none" viewBox="0 0 15 14" height="14" width="15">
+                                                                <path d="M2 8.36364L6.23077 12L13 2"></path>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <!-- Agrega más filas según sea necesario -->
+                                        </tbody>
+                                        </table>
+                                    </div>
+
+                                    
                             </div>
                         </section>
 
@@ -132,6 +167,12 @@
                                     margin-right: 10px;
                                 }
 
+                                .button-group {
+                                display: flex;
+                                gap: 10px; /* Espacio entre botones */
+                                align-items: center; /* Alineación vertical */
+                            }
+
                                 .Btn {
                                 display: flex;
                                 align-items: center;
@@ -145,14 +186,14 @@
                                 overflow: hidden;
                                 transition-duration: .3s;
                                 box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
-                                background: linear-gradient(144deg,#000000,#000000 50%,#ff000017);
+                                background: linear-gradient(144deg,#02356b,#02356b 50%,#02356b);
                                 }
 
                                 /* plus sign */
                                 .sign {
                                 width: 100%;
                                 font-size: 2.2em;
-                                color: rgb(0, 119, 255);
+                                color: rgb(255, 255, 255);
                                 transition-duration: .3s;
                                 display: flex;
                                 align-items: center;
@@ -192,12 +233,76 @@
                                 transform: translate(2px ,2px);
                                 }
 
+                                .Ver-button {
+                                width: 40px;
+                                height: 40px;
+                                border-radius: 50%;
+                                background-color: #02356b;
+                                border: none;
+                                font-weight: 600;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+                                cursor: pointer;
+                                transition-duration: 0.3s;
+                                overflow: hidden;
+                                position: relative;
+                                text-decoration: none !important;
+                                color: white;
+                                
+                                }
+                                
+                                .Ver-svgIcon {
+                                width: 17px;
+                                transition-duration: 0.3s;
+                                }
+
+                               
+
+                                .Ver-button:hover {
+                                width: 120px;
+                                border-radius: 50px;
+                                transition-duration: 0.3s;
+                                background-color: #02356b;
+                                align-items: center;
+                                }
+
+                                .Ver-button:hover .Ver-svgIcon {
+                                width: 20px;
+                                transition-duration: 0.3s;
+                                transform: translateY(60%);
+                                -webkit-transform: rotate(360deg);
+                                -moz-transform: rotate(360deg);
+                                -o-transform: rotate(360deg);
+                                -ms-transform: rotate(360deg);
+                                transform: rotate(360deg);
+                                }
+
+
+                                .Ver-button::before {
+                                display: none;
+                                content: "Ver Detalle";
+                                color: white;
+                                transition-duration: 0.3s;
+                                font-size: 1px;
+                                }
+
+                                .Ver-button:hover::before {
+                                display: block;
+                                padding-right: 10px;
+                                font-size: 13px;
+                                opacity: 1;
+                                transform: translateY(0px);
+                                transition-duration: 0.3s;
+                                }
+
                                
                                 .edit-button {
                                 width: 40px;
                                 height: 40px;
                                 border-radius: 50%;
-                                background-color: rgb(0, 0, 0);
+                                background-color: #02356b;
                                 border: none;
                                 font-weight: 600;
                                 display: flex;
@@ -224,7 +329,7 @@
                                 width: 120px;
                                 border-radius: 50px;
                                 transition-duration: 0.3s;
-                                background-color: rgb(1, 255, 86);
+                                background-color: #02356b;
                                 align-items: center;
                                 }
 
@@ -260,7 +365,7 @@
                                 width: 40px;
                                 height: 40px;
                                 border-radius: 50%;
-                                background-color: rgb(0, 0, 0);
+                                background-color: #02356b;
                                 border: none;
                                 font-weight: 600;
                                 display: flex;

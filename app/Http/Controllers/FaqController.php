@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class TicketController extends Controller
+class FaqController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('ticket/index');
+         return view('faq/index');
     }
 
     /**
@@ -59,6 +59,6 @@ class TicketController extends Controller
      */
     public function destroy(string $id)
     {
-      //
+        //
     }
 }
