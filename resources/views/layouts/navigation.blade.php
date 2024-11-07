@@ -37,6 +37,18 @@
                             {{ __('Profile') }}
                         </x-dropdown-link>
 
+                        <x-dropdown-link :href="route('dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-dropdown-link>
+
+                        <x-dropdown-link :href="route('faqs.index')">
+                            {{ __('FAQS') }}
+                        </x-dropdown-link>
+
+                        <x-dropdown-link :href="route('tickets.index')">
+                            {{ __('Gestion de Tickets') }}
+                        </x-dropdown-link>
+
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -109,6 +121,17 @@
         <li><a href="{{ route('tickets.index') }}" class="sidebar-link">
             <i class="fa-solid fa-ticket"></i><span> Gestión de Tickets</span>
         </a></li>
+        <li><a href="{{ route('profile.edit') }}" class="sidebar-link">
+            <i class="fa-regular fa-user"></i><span> Gestión de Usuario</span>
+        </a></li>
+        <li>
+            <form id="logoutForm" method="POST" action="{{ route('logout') }}" style="display: none;">
+                @csrf
+            </form>
+            <a href="#" onclick="document.getElementById('logoutForm').submit();" class="sidebar-link">
+                <i class="fa-solid fa-right-from-bracket"></i><span> Salir</span>
+            </a>
+        </li>
     </ul>
 </div>
 <style>
@@ -167,10 +190,12 @@
         display: flex;
         align-items: center;
         flex-direction: column;
+        
     }
     
     .sidebar i {
         font-size: 24px;
+       
         
     }
     
