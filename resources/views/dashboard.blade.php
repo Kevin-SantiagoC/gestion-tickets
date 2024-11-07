@@ -17,10 +17,12 @@
                         </head>
                         <body>
                         
-                        @include('layouts.sidebar')
+                       
                         
-                        <div class="content" style="margin-left: 200px; padding: 20px;">
+                        <div class="content" >
+                            
                             <!-- Aquí va el contenido principal del dashboard -->
+                            
                            
                             <!-- Coloca aquí el resto del contenido -->
                         </div>

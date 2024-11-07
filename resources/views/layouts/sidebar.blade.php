@@ -15,9 +15,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <!-- Botón de menú para pantallas pequeñas -->
-<div class="menu-button" onclick="toggleSidebar()">
-    <i class="fas fa-bars"></i>
-</div>
 
 <!-- Sidebar -->
 <div class="sidebar">

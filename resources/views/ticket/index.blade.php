@@ -17,7 +17,8 @@
                             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
                         </head>
                         <body>
-                        @include('layouts.sidebar')
+                          
+                        
 
                         <section class="ticket">
                             <div class="content" style="margin-left: 200px; padding: 1px; ">

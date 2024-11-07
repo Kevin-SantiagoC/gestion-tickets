@@ -13,14 +13,16 @@
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
  <!-- Rol -->
-        <div>
-            <x-input-label for="select" :value="__('Rol')" />
-            <select class="block mt-1 w-full" aria-label="Default select example">
-                <option value="1">Administrador</option>
-                <option value="2">Usuario</option>
-              </select>
-        
-        </div>
+ <div>
+    <x-input-label for="role" :value="__('Role')" />
+        <select id="role" name="role" class="block mt-1 w-full">
+            <option value="administrador">Administrador</option>
+            <option value="usuario">Usuario</option>
+        </select>
+       
+    
+    <x-input-error :messages="$errors->get('role')" class="mt-2" />
+</div>
 
         <!-- Email Address -->
         <div class="mt-4">

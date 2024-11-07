@@ -19,7 +19,7 @@
 
                         </head>
                         <body>
-                        @include('layouts.sidebar')
+                        
                         <div class="content" style="margin-left: 120px; padding: 20px;">
                             <style>
 

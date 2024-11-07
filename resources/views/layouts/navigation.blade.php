@@ -1,4 +1,5 @@
-<nav x-data="{ open: false }" style="background-color: #042141; border-bottom: 2px solid #021e30;">
+<nav x-data="{ open: false }" style="background-color: #042141;">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -13,6 +14,8 @@
                 <!-- Navigation Links -->
                 
             </div>
+
+          
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
@@ -94,3 +97,111 @@
         </div>
     </div>
 </nav>
+<div class="sidebar ">
+    <ul class="list-unstyled">
+        <li><a href="{{ route('dashboard') }}" class="sidebar-link">
+            <i class="fa-solid fa-chart-line"></i><span> Dashboard</span>
+        </a></li>
+       
+        <li><a href="{{route('faqs.index')}}" class="sidebar-link">
+            <i class="fa-regular fa-circle-question"></i><span> FAQ</span>
+        </a></li>
+        <li><a href="{{ route('tickets.index') }}" class="sidebar-link">
+            <i class="fa-solid fa-ticket"></i><span> Gestión de Tickets</span>
+        </a></li>
+    </ul>
+</div>
+<style>
+    /* Estilos del botón de menú para pantallas pequeñas */
+    .menu-button {
+        display: none;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        background-color: #042141;
+        color: white;
+        padding: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        z-index: 1000;
+        margin-top: 130px
+        
+    }
+    
+    .menu-button i {
+        font-size: 24px;
+    }
+    
+    /* Estilos del sidebar */
+    .sidebar {
+        background-color: #042141;
+        position:absolute;
+        width: 90px;
+        height: 125%;
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: auto;
+        transition: transform 0.3s ease;
+        
+    }
+    
+    .sidebar ul {
+        padding-left: 0;
+        width: 100%;
+    }
+    
+    .sidebar li {
+        padding: 10px 20px;
+        transition: background-color 0.3s;
+    }
+    
+    .sidebar li:hover {
+        background-color: #ffffff36;
+    }
+    
+    .sidebar-link {
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .sidebar i {
+        font-size: 24px;
+        
+    }
+    
+    .sidebar-link span {
+        font-size: 15px;
+        text-align: center;
+    }
+    
+    .sidebar-link:hover {
+        color: #f0a500;
+    }
+    
+    /* Media queries para el sidebar responsive */
+    @media (max-width: 768px) {
+        .sidebar {
+            transform: translateX(-120%); /* Oculta el sidebar */
+        }
+    
+        .menu-button {
+            display: block; /* Muestra el botón de menú en pantallas pequeñas */
+        }
+    
+        .sidebar.open {
+            transform: translateX(0); /* Muestra el sidebar cuando se hace clic en el botón */
+        }
+    }
+    </style>
+    
+        <script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('open');
+        }
+        </script>
+    
