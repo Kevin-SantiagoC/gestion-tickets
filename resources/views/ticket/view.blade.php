@@ -12,7 +12,7 @@
                     <html lang="en">
                         <head>
                             <meta charset="UTF-8">
-                            <title>Creacion de Tickets</title>
+                            <title>Detalle Ticket</title>
                             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
                             
                             <script>
@@ -36,57 +36,51 @@
                         <body>
                             <section class="ticket">
                                 <div class="content" style="margin: 10px; padding: 1px;">
-                                    <h1 style="color:#02356b "><b>Gestion de Tickets</b></h1>
+                                    <h1 style="color:#02356b "><b>Detalle de Tickets</b></h1>
                                     
-                                    <form method="POST" action="{{route('tickets.store')}}" enctype="multipart/form-data">
-                                        @csrf
+                                    <form method="POST"  enctype="multipart/form-data">
+                                        
                                         
                                         <div class="mb-3">
                                             <label for="name" class="form-label">Nombre</label>
-                                            <input type="text" class="form-control" id="name" aria-describedby="nameHelp" name="name" placeholder="Nombre" value="" required>
+                                            <input type="text" class="form-control" id="name" aria-describedby="nameHelp" name="name" placeholder="Nombre producto" value="{{$ticket->nombre}}" disabled="disable">
                                             
                                           </div>
                                           <div class="mb-3">
-                                
-                                        <label for="categoria" class="form-label">Asunto</label>
-                                        <select id="asunto" name="asunto" class="block mt-1 w-full">
-                                            <option value="Soporte">Soporte</option>
-                                            <option value="Facturacion">Facturacion</option>
-                                            <option value="Incidente">Incidente</option>
-                                        </select></div>
+                                            
+                                            <label for="name" class="form-label">asunto</label>
+                                            <input type="text" class="form-control" id="name" aria-describedby="nameHelp" name="name" placeholder="Nombre producto" value="{{$ticket->asunto}}" disabled="disable">
+                                            </div>
                                 
                                         <div class="mb-3">
-                                            <label for="name" class="form-label">Descripcion Problema</label>
-                                            <textarea class="form-control" id="descri"  name="descri" narows="3" value="" required></textarea>
+                                            <label for="descri" class="form-label">Descripcion Problema</label>
+                                            <textarea class="form-control" id="descri" name="descri" rows="3" readonly>{{ $ticket->descripcion }}</textarea>
                                             
-                                          </div>
-
+                                        </div>
+                                        
+                                        
                                           <div class="mb-3">
-                                            <label for="name" class="form-label">prioridad</label>
-                                            <select id="prioridad" name="prioridad" class="block mt-1 w-full">
-                                                <option value="Alta">Alta</option>
-                                                <option value="Medio">Medio</option>
-                                                <option value="Baja">Baja</option>
-                                            </select>
-                                            
+                                            <label for="name" class="form-label">Prioridad</label>
+                                            <input type="text" class="form-control" id="name" aria-describedby="nameHelp" name="name" placeholder="Nombre producto" value="{{$ticket->prioridad}}" disabled="disable">
                                           </div>
 
                                           <div class="mb-3">
                                             
-                                            <input type="hidden" class="form-control" id="estatus" aria-describedby="estatusHelp" name="estatus"  value="Abierto">
+                                            <label for="name" class="form-label">Estatus</label>
+                                            <input type="text" class="form-control" id="name" aria-describedby="nameHelp" name="name" placeholder="Nombre producto" value="{{$ticket->estado}}" disabled="disable">
                                             
                                           </div>
 
                                           <div class="mb-3">
                                             
-                                            <input type="hidden" class="form-control" id="asignado" aria-describedby="asignadoHelp" name="asignado"  value="1">
+                                            <label for="name" class="form-label">Asignado a</label>
+                                            <input type="text" class="form-control" id="name" aria-describedby="nameHelp" name="name" placeholder="Nombre producto" value="{{$ticket->name}}" disabled="disable">
                                             
                                           </div>
 
                                           <div class="mb-3">
                                             <label for="name" class="form-label">Telefono</label>
-                                            <input type="text" class="form-control" id="phone" aria-describedby="nameHelp" name="phone" placeholder="Telefono" value="" required>
-                                            
+                                            <input type="text" class="form-control" id="name" aria-describedby="nameHelp" name="name" placeholder="Nombre producto" value="{{$ticket->phone}}" disabled="disable">
                                           </div>
 
 
@@ -94,8 +88,8 @@
                                 
                                 
                                         <div class="mt-3">
-                                            <button type="submit" class="btn btn-primary">Guardar</button>
-                                            <a href="{{ route('tickets.index') }}" class="btn btn-warning">Cancelar</a>
+                                            
+                                            <a href="{{ route('tickets.index') }}" class="btn btn-primary">OK</a>
                                 
                                             
                                             

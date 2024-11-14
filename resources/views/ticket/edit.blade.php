@@ -38,32 +38,44 @@
                                 <div class="content" style="margin: 10px; padding: 1px;">
                                     <h1 style="color:#02356b "><b>Gestion de Tickets</b></h1>
                                     
-                                    <form method="POST" action="{{route('tickets.store')}}" enctype="multipart/form-data">
+                                    <form method="POST" action="{{route('tickets.update',['ticket'=>$ticket->id])}}" enctype="multipart/form-data">
+                                        @method('put')
                                         @csrf
                                         
                                         <div class="mb-3">
                                             <label for="name" class="form-label">Nombre</label>
-                                            <input type="text" class="form-control" id="name" aria-describedby="nameHelp" name="name" placeholder="Nombre" value="" required>
+                                            <input type="text" class="form-control" id="name" aria-describedby="nameHelp" name="name" placeholder="Nombre producto" value="{{$ticket->nombre}}">
                                             
                                           </div>
                                           <div class="mb-3">
-                                
+                                            
                                         <label for="categoria" class="form-label">Asunto</label>
                                         <select id="asunto" name="asunto" class="block mt-1 w-full">
+                                            <option  selected disabled value="">{{$ticket->asunto}}</option>
                                             <option value="Soporte">Soporte</option>
                                             <option value="Facturacion">Facturacion</option>
                                             <option value="Incidente">Incidente</option>
                                         </select></div>
                                 
                                         <div class="mb-3">
-                                            <label for="name" class="form-label">Descripcion Problema</label>
-                                            <textarea class="form-control" id="descri"  name="descri" narows="3" value="" required></textarea>
-                                            
-                                          </div>
+                                            <label for="descri" class="form-label">Descripcion Problema</label>
+                                            <textarea class="form-control" id="descri" name="descri" rows="3">{{$ticket->descripcion}}</textarea>
+                                        </div>
+                                        
+                                        <script>
+                                            document.addEventListener("DOMContentLoaded", function() {
+                                                
+                                                let descriField = document.getElementById('descri');
+                                                let now = new Date();
+                                                let dateTimeString = now.toLocaleString(); 
+                                                descriField.value += `\n\nFecha de Edicion: ${dateTimeString}`;
+                                            });
+                                        </script>
 
                                           <div class="mb-3">
-                                            <label for="name" class="form-label">prioridad</label>
+                                            <label for="prioridad" class="form-label">Prioridad</label>
                                             <select id="prioridad" name="prioridad" class="block mt-1 w-full">
+                                                <option selected disabled value="">{{$ticket->prioridad}}</option>
                                                 <option value="Alta">Alta</option>
                                                 <option value="Medio">Medio</option>
                                                 <option value="Baja">Baja</option>
@@ -73,19 +85,40 @@
 
                                           <div class="mb-3">
                                             
-                                            <input type="hidden" class="form-control" id="estatus" aria-describedby="estatusHelp" name="estatus"  value="Abierto">
+                                            <label for="name" class="form-label">Estatus</label>
+                                            <select id="estatus" name="estatus" class="block mt-1 w-full">
+                                                
+                                                <option selected disabled value="">{{$ticket->estado}}</option>
+                                                <option value="Alta">Abierto</option>
+                                                <option value="En Proceso">En Proceso</option>
+                                                <option value="Cerrado">Cerrado</option>
+                                                <option value="Cancelado">Cancelado</option>
+                                            </select>
                                             
                                           </div>
 
                                           <div class="mb-3">
                                             
-                                            <input type="hidden" class="form-control" id="asignado" aria-describedby="asignadoHelp" name="asignado"  value="1">
+                                            <label for="Responsable" class="form-label">Responsable</label>
+                                            
+                                            <select class="block mt-1 w-full" id="asignado" name="asignado" required>
+                                               
+                                             <option selected disabled value="">{{$ticket->name}}</option>
+                                             @foreach ($users as $user )
+                                             @if ($user->id ==$ticket->user_id)
+                                             <option selected value="{{$user->id}}">{{$user->name}}</option>
+                                             @else
+                                             <option value="{{$user->id}}">{{$user->name}}</option>   
+            
+                                             @endif   
+                                             @endforeach
+                                            </select>
                                             
                                           </div>
 
                                           <div class="mb-3">
                                             <label for="name" class="form-label">Telefono</label>
-                                            <input type="text" class="form-control" id="phone" aria-describedby="nameHelp" name="phone" placeholder="Telefono" value="" required>
+                                            <input type="text" class="form-control" id="phone" aria-describedby="nameHelp" name="phone"  value="{{$ticket->phone}}">
                                             
                                           </div>
 
